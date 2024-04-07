@@ -1,2 +1,2 @@
 # CrossLoco
-Implementation of CrossLoco, currently lite version
+Implementation of CrossLoco, currently underconstruction version
