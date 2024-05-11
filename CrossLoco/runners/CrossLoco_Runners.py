@@ -3,7 +3,7 @@ import os
 from collections import deque
 import statistics
 
-# from torch.utils.tensorboard import SummaryWriter
+
 import wandb
 import torch
 import numpy as np
@@ -31,8 +31,8 @@ class crossloco_Runner(OnPolicyRunner):
 
         self.human_local_dataset = torch.from_numpy(np.load('./human_motions/human_local_dataset.npy')).to(self.device, dtype=torch.float)
         self.human_root_dataset = torch.from_numpy(np.load('./human_motions/human_root_dataset.npy')).to(self.device, dtype=torch.float)
-        print('human_local_dataset_shape:',self.human_local_dataset.shape)
-        print('human_root_dataset_shape:',self.human_root_dataset.shape)
+        print('human_local_dataset_shape:', self.human_local_dataset.shape)
+        print('human_root_dataset_shape:', self.human_root_dataset.shape)
 
         self.env = env
         self.env.load_human_motion(self.human_local_dataset, self.human_root_dataset)
@@ -49,7 +49,7 @@ class crossloco_Runner(OnPolicyRunner):
                                                         **self.policy_cfg).to(self.device)
         alg_class = eval(self.cfg["algorithm_class_name"]) # PPO
         self.alg: PPO = alg_class(actor_critic, device=self.device, **self.alg_cfg)
-        self.num_steps_per_env = self.env.max_episode_length
+        self.num_steps_per_env = self.alg_cfg.num_steps_per_env
         self.save_interval = self.cfg["save_interval"]
 
         # init storage and model

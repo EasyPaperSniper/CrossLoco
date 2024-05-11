@@ -1,2 +1,19 @@
-# CrossLoco
-Implementation of CrossLoco, currently underconstruction version
+# CrossLoco: Human Motion Driven Control of Legged Robots via Guided Unsupervised Reinforcement Learning #
+ CrossLoco, a guided unsupervised reinforcement learning framework that simultaneously learns robot skills and their correspondence to human motions. The key innovation is to introduce a cycle-consistency-based reward term designed to maximize the mu- tual information between human motions and robot states.
+
+[[paper]](https://openreview.net/forum?id=UCfz492fM8) [[website]](https://easypapersniper.github.io/projects/crossloco/crossloco.html)
+
+
+
+# Annocement
+Although the orginal version of CrossLoco is implemented based on LeggedGym, we now move our implementation to Orbit. 
+
+
+
+# Installation
+Install Orbit follow the instruction: https://isaac-orbit.github.io/orbit/source/setup/installation.html
+
+
+
+
+
