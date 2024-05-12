@@ -16,6 +16,7 @@ Install Orbit follow the instruction: https://isaac-orbit.github.io/orbit/source
 
 # Code structure
 The environment and training configuration are included in ./envs
+
 The main algorithm and runner files are locates in ./runners
 
 
