@@ -1,1 +1,0 @@
-CUDA_LAUNCH_BLOCKING=1 python crossloco/scripts/train.py --task=crossloco_aliengo --num_envs=2 

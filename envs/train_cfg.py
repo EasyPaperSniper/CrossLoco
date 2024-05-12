@@ -8,24 +8,18 @@ from omni.isaac.orbit_tasks.utils.wrappers.rsl_rl import (
 )
 
 
-
+    
 
 @configclass
-class TM2PpoActorCriticCfg():
-    
-    init_noise_std = 1.
-    actor_latent_dim = 64
-    actor_encoder_hidden_dims = [1024, 1024, 512]
-    actor_decoder_hidden_dims = [512, 256, 128]
-    critic_hidden_dims = [1024, 1024, 512]
+class PpoActorCriticCfg():
+    init_noise_std=1.0
+    actor_hidden_dims=[512, 256, 128]
+    critic_hidden_dims=[512, 256, 128]
     activation="lrelu"
-    share_primitive=True
-
 
 
 @configclass  
-class TM2PpoAlgorithmCfg():
-
+class PpoAlgorithmCfg():
     value_loss_coef = 1.0
     use_clipped_value_loss = True
     clip_param = 0.2
@@ -38,10 +32,10 @@ class TM2PpoAlgorithmCfg():
     lam = 0.95
     desired_kl = 0.01
     max_grad_norm = 1.
-
+        
 
 @configclass  
-class TM2XmorphCfg():
+class XmorphCfg():
     mapper_dims = [512, 128, 512]
     activation = 'lrelu'
     num_learning_epochs = 2
@@ -49,33 +43,28 @@ class TM2XmorphCfg():
     learning_rate = 1.e-4 #5.e-4
 
 
-        
 @configclass
-class TM2PPORunnerCfg():    
+class CrossLocoPPORunnerCfg():    
     seed: int = 7777
     device: str = "cuda:0"
     num_steps_per_env: int = 25
     max_iterations: int = 10000
     empirical_normalization: bool = False
     save_interval = 2000
-    experiment_name: str = "Sparring"
+    experiment_name: str = "CrossLoco"
     run_name: str = ""
-    logger = None
+    logger = None #"wandb"
     resume: bool = False
     load_run: str = ".*"
     load_checkpoint: str = "model_.*.pt"
-    wandb_project = "TM2"
+    wandb_project = "CrossLoco"
     
-    policy_class_name = 'TM2_ActorCritic'
-    policy= TM2PpoActorCriticCfg()
+    policy_class_name = 'ActorCritic'
+    policy= PpoActorCriticCfg()
     """The policy configuration."""
     
-    algorithm_class_name = 'TM2_PPO'
-    algorithm = TM2PpoAlgorithmCfg()
+    algorithm_class_name = 'PPO'
+    algorithm = PpoAlgorithmCfg()
     """The algorithm configuration."""
     
-    
-    Xmorph = TM2XmorphCfg()
-
-
-
+    Xmorph = XmorphCfg()
