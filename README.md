@@ -6,7 +6,7 @@
 
 
 # Annocement
-Although the orginal version of CrossLoco is implemented based on LeggedGym, we now move our implementation to Orbit. Currently still underconstruction but the core reward and algorithm is uploaded.
+Although the orginal version of CrossLoco is implemented based on LeggedGym, we now move our implementation to Orbit. Currently, this repo is still under construction but the core reward and algorithm is uploaded.
 
 
 
