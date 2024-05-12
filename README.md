@@ -6,12 +6,17 @@
 
 
 # Annocement
-Although the orginal version of CrossLoco is implemented based on LeggedGym, we now move our implementation to Orbit. 
+Although the orginal version of CrossLoco is implemented based on LeggedGym, we now move our implementation to Orbit. Currently still underconstruction but the core reward and algorithm is uploaded.
 
 
 
 # Installation
 Install Orbit follow the instruction: https://isaac-orbit.github.io/orbit/source/setup/installation.html
+
+
+# Code structure
+The environment and training configuration are included in ./envs
+The main algorithm and runner files are locates in ./runners
 
 
 
